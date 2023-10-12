@@ -1,6 +1,14 @@
+// assign button values
+document.querySelectorAll('.number-button').forEach(
+    function buttonAssignment() {
+        
+    
+    })
+
+
 const add = function(a,b) {
     let result = a+b;
-    console.log(result);
+    console.log(result); // console logs will be changed to letting the result value appear in the calculator display area
 };
   
 const subtract = function(a,b) {
@@ -18,23 +26,37 @@ const divide = function(a,b) {
     console.log(result);
 };
 
-const num1 = button.value;
-const num2 = button.value;
-const displayOperator = button.value;
+let num1 = [];
+let num2 = [];
+let operand; // can be assigned the values 'addition', 'subtraction', 'multiplication', 'division'
 
-const operate = function([a,b],operator) {
-    switch (operator) {
+// assign the button presses to the correct variable
+const variableAssignment = function() {
+    
+}
+
+const operate = function([num1,num2],operand) {
+    switch (operand) {
         case addition:
-            add(a,b);
+            add(num1,num2);
             break;
         case subtraction:
-            subtract(a,b);
+            subtract(num1,num2);
             break;
         case multiplication:
-            multiply(a,b);
+            multiply(num1,num2);
             break;
         case division:
-            divide(a,b);
+            divide(num1,num2);
+        default:
+            console.log("error");
     }
 };
+
+// sets display blank
+const clearButton = function() {
+    document.getElementById("display-numbers").textContent = "";
+}
+document.getElementById("clear").addEventListener("click", function(){clearButton()});
+
 
