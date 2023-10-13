@@ -26,29 +26,31 @@
     padding: 16px;
 }
 
-.number-button, .operator-button, #clear {
+.number-button, .operator-button, #clear, #equals {
     color: white;
     font-size: 48px;
     width: 84px;
     height: 84px;
     padding: 16px;
     margin: 8px;
-    border: 0px solid transparent;
-    border-radius: 50%;
     line-height:0%;
 }
 
-.number-button:hover, .operator-button:hover, #clear:hover {
+.number-button:hover, .operator-button:hover, #clear:hover, #equals:hover {
     cursor: pointer;
     border: 3px solid white;
     transform: scale(1.1);
+}
+
+.number-button:active, .operator-button:active, #clear:active, #equals:active {
+    transform: scale(1.0);
 }
 
 .number-button {
     background-color: rgb(94, 94, 94);
 }
 
-.operator-button {
+.operator-button, #equals {
     background-color: orange;
 }
 
