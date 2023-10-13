@@ -1,10 +1,26 @@
-// assign button values
-document.querySelectorAll('.number-button').forEach(
-    function buttonAssignment() {
-        
-    
-    })
+// used for display and storing into num variables
+const displayNumber = function() {
+    let buttonValue = this.textContent;
+    displaySection.textContent = displaySection.textContent.concat(buttonValue);
+    num1.push(buttonValue);
+}
 
+const displayOperator = function() {
+    let buttonValue = this.textContent;
+    displaySection.textContent = buttonValue;
+    operand = buttonValue;
+}
+
+// gives the numbered buttons their onclick functionality
+document.querySelectorAll(".number-button").forEach(function(button){
+    button.addEventListener("click", displayNumber);
+});
+
+document.querySelectorAll(".operator-button").forEach(function(button){
+    button.addEventListener("click", displayOperator);
+});
+
+let displaySection = document.getElementById("display-numbers");
 
 const add = function(a,b) {
     let result = a+b;
@@ -56,7 +72,11 @@ const operate = function([num1,num2],operand) {
 // sets display blank
 const clearButton = function() {
     document.getElementById("display-numbers").textContent = "";
+    num1 = [];
+    num2 = [];
+    operand = undefined;
 }
+
 document.getElementById("clear").addEventListener("click", function(){clearButton()});
 
 
