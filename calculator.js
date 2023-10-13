@@ -12,35 +12,44 @@ const displayOperator = function() {
     operand = buttonValue;
 }
 
+// called when equals is pressed
+const calculate = function() {
+    operate([num1, num2], operand);
+}
+
 // gives the numbered buttons their onclick functionality
 document.querySelectorAll(".number-button").forEach(function(button){
     button.addEventListener("click", displayNumber);
 });
 
+// gives the operator buttons their onclick functionality
 document.querySelectorAll(".operator-button").forEach(function(button){
     button.addEventListener("click", displayOperator);
 });
+
+//gives equals button onclick functionality
+document.getElementById('equals').addEventListener("click", calculate);
 
 let displaySection = document.getElementById("display-numbers");
 
 const add = function(a,b) {
     let result = a+b;
-    console.log(result); // change this to appear in the calculator display area when ready
+    displaySection.textContent = result; // change this to appear in the calculator display area when ready
 };
   
 const subtract = function(a,b) {
     let result = a-b;
-    console.log(result);
+    displaySection.textContent = result;
 };
   
 const multiply = function(a,b) {
     let result = a*b;
-    console.log(result);
+    displaySection.textContent = result;
 };
 
 const divide = function(a,b) {
     let result = a/b;
-    console.log(result);
+    displaySection.textContent = result;
 };
 
 let num1 = [];
@@ -67,7 +76,7 @@ const operate = function([num1,num2],operand) {
             divide(num1,num2);
             break;
         default:
-            console.log("error");
+            displaySection.textContent = 'error';
     }
 };
 
