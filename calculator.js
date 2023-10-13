@@ -1,10 +1,11 @@
-// used for display and storing into num variables
+// display and store into num variables
 const displayNumber = function() {
     let buttonValue = this.textContent;
     displaySection.textContent = displaySection.textContent.concat(buttonValue);
     num1.push(buttonValue);
 }
 
+// display and store into operand variable
 const displayOperator = function() {
     let buttonValue = this.textContent;
     displaySection.textContent = buttonValue;
@@ -24,7 +25,7 @@ let displaySection = document.getElementById("display-numbers");
 
 const add = function(a,b) {
     let result = a+b;
-    console.log(result); // console logs will be changed to letting the result value appear in the calculator display area
+    console.log(result); // change this to appear in the calculator display area when ready
 };
   
 const subtract = function(a,b) {
@@ -53,17 +54,18 @@ const variableAssignment = function() {
 
 const operate = function([num1,num2],operand) {
     switch (operand) {
-        case addition:
+        case '+':
             add(num1,num2);
             break;
-        case subtraction:
+        case '-':
             subtract(num1,num2);
             break;
-        case multiplication:
+        case 'x':
             multiply(num1,num2);
             break;
-        case division:
+        case '/':
             divide(num1,num2);
+            break;
         default:
             console.log("error");
     }
