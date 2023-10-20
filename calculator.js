@@ -15,10 +15,10 @@ const displayNumber = function() {
 // display and store into operator variable
 const displayOperator = function() {
     let buttonValue = this.textContent;
-    displaySection.textContent = buttonValue;
+    displaySection.textContent = ' ' + buttonValue + ' ';
     operator = buttonValue;
     if (num1.length === 0) {num1 = num2, num2 = [];} // passes to num1 on first calculation, 2nd operation and on will already have num1 value 
-    else calculate(), displaySection.textContent = parseInt(num1.join("")) + operator; // allows multiple operations in a row
+    else calculate(), displaySection.textContent = parseInt(num1.join("")) + ' ' + operator + ' '; // allows multiple operations in a row
 }
 
 // called when equals is pressed
@@ -57,8 +57,9 @@ const multiply = function(a,b) {
 };
 
 const divide = function(a,b) {
-    num1 = a/b;
-    displaySection.textContent = num1;
+    if (b !== 0) {num1 = a/b;
+    displaySection.textContent = num1;}
+    else clearButton(), displaySection.textContent = "Nice Try :)";
 };
 
 const operate = function([num1,num2],operator) {
