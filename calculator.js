@@ -17,17 +17,21 @@ const displayOperator = function() {
     let buttonValue = this.textContent;
     displaySection.textContent = buttonValue;
     operator = buttonValue;
-    if (num1.length === 0) {num1 = num2;} // passes to num1 on first calculation, 2nd operation and on will already have num1 value
-    num2 = []; // reset num2 for new input
+    if (num1.length === 0) {num1 = num2, num2 = [];} // passes to num1 on first calculation, 2nd operation and on will already have num1 value 
+    else calculate(), displaySection.textContent = parseInt(num1.join("")) + operator; // allows multiple operations in a row
 }
 
 // called when equals is pressed
 const calculate = function() {
-    num2 = parseInt(num2.join(""));
-    num1 = parseInt(num1.join(""));
-    operate([num1, num2], operator);
-    num1 = Array.from(String(num1)); // need to return to an array for further operations *see bottom for further info
+    if (num1.length && num2.length !== 0){
+        num2 = parseInt(num2.join(""));
+        num1 = parseInt(num1.join(""));
+        operate([num1, num2], operator);
+        num2 = []; // reset num2 for new input
+        num1 = Array.from(String(num1)); // need to return to an array for further operations *see bottom for further info
+    } else; // prevent operations happening without two numbers
 }
+
 
 // sets display blank
 const clearButton = function() {
