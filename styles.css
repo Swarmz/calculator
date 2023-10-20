@@ -9,11 +9,11 @@
 
 #display-screen {
     background-color: rgb(218, 216, 216);
-    border: 3px solid transparent;
-    border-radius: 16px;
+    border: 3px solid rgb(51, 51, 51);
     min-height: 48px;
     padding: 16px;
     margin: 16px;
+    font-family: 'Audiowide', sans-serif;
 }
 
 #display-numbers{
@@ -34,6 +34,7 @@
     padding: 16px;
     margin: 8px;
     line-height:0%;
+    font-family: 'Audiowide', sans-serif;
 }
 
 .number-button:hover, .operator-button:hover, #clear:hover, #equals:hover {
