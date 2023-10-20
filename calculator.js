@@ -1,7 +1,7 @@
 ///////////         CURRENT LOGIC       //////////////
-/*  Numbers are added to the array num2
+/*  First number is assigned to the array num2
     upon an operation button press num2 array is moved into num1 array
-    the second set of input received is moved into num2 array
+    the second number received is assigned to num2 array
     upon pressing equals both arrays join() and the result is displayed as a number
 */
 
@@ -12,11 +12,11 @@ const displayNumber = function() {
     num2.push(buttonValue);
 }
 
-// display and store into operand variable
+// display and store into operator variable
 const displayOperator = function() {
     let buttonValue = this.textContent;
     displaySection.textContent = buttonValue;
-    operand = buttonValue;
+    operator = buttonValue;
     if (num1.length === 0) {num1 = num2;} // passes to num1 on first calculation, 2nd operation and on will already have num1 value
     num2 = []; // reset num2 for new input
 }
@@ -25,7 +25,7 @@ const displayOperator = function() {
 const calculate = function() {
     num2 = parseInt(num2.join(""));
     num1 = parseInt(num1.join(""));
-    operate([num1, num2], operand);
+    operate([num1, num2], operator);
     num1 = Array.from(String(num1)); // need to return to an array for further operations *see bottom for further info
 }
 
@@ -34,7 +34,7 @@ const clearButton = function() {
     document.getElementById("display-numbers").textContent = "";
     num1 = [];
     num2 = [];
-    operand = undefined;
+    operator = undefined;
 }
 
 const add = function(a,b) {
@@ -57,8 +57,8 @@ const divide = function(a,b) {
     displaySection.textContent = num1;
 };
 
-const operate = function([num1,num2],operand) {
-    switch (operand) {
+const operate = function([num1,num2],operator) {
+    switch (operator) {
         case '+':
             add(num1,num2);
             break;
@@ -94,7 +94,7 @@ document.getElementById("clear").addEventListener("click", clearButton);
 let displaySection = document.getElementById("display-numbers");
 let num1 = [];
 let num2 = [];
-let operand; // can be assigned the values 'addition', 'subtraction', 'multiplication', 'division'
+let operator; // can be assigned the values 'addition', 'subtraction', 'multiplication', 'division'
 
 
 // * num1 = Array.from(String(num1), Number);
