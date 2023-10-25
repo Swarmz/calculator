@@ -16,9 +16,8 @@ const displayNumber = function() {
 const displayOperator = function() {
     let buttonValue = this.textContent;
     displaySection.textContent = ' ' + buttonValue + ' ';
-    operator = buttonValue;
     if (num1.length === 0) {num1 = num2, num2 = [];} // passes to num1 on first calculation, 2nd operation and on will already have num1 value 
-    else calculate(), displaySection.textContent = parseInt(num1.join("")) + ' ' + operator + ' '; // allows multiple operations in a row
+    else calculate(); operator = buttonValue; displaySection.textContent = parseInt(num1.join("")) + ' ' + operator + ' '; // allows multiple operations in a row
 }
 
 // called when equals is pressed
